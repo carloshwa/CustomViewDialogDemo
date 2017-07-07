@@ -11,10 +11,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.test_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.long_test_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new MultiSelectCustomViewDialogFragment().show(getSupportFragmentManager(), null);
+                MultiSelectCustomViewDialogFragment.newInstance(new String[]{"a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"})
+                        .show(getSupportFragmentManager(), null);
+            }
+        });
+
+        findViewById(R.id.short_test_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MultiSelectCustomViewDialogFragment.newInstance(new String[]{"a", "b", "c"})
+                        .show(getSupportFragmentManager(), null);
             }
         });
     }
